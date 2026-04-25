@@ -27,11 +27,11 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
-    
+
     const res = await login(email, password);
     if (res.success) {
       const user = useStore.getState().currentUser;
-      
+
       // Enforce Google login if registered with Google
       if (user?.authProvider === 'google') {
         useStore.getState().logout();
@@ -75,7 +75,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans selection:bg-blue-900/20">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="sm:mx-auto sm:w-full sm:max-w-md flex flex-col items-center"
@@ -91,7 +91,7 @@ export default function Login() {
         </p>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
@@ -104,7 +104,7 @@ export default function Login() {
                 {error}
               </div>
             )}
-            
+
             <div>
               <label className="block text-sm font-semibold text-slate-700 mb-2">
                 Email address

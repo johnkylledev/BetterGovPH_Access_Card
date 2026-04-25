@@ -54,7 +54,7 @@ export const AccessCard: React.FC<AccessCardProps> = ({ user }) => {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={() => navigate(`/verify/${user.memberId || user.id}`)}
-        className="relative w-[min(340px,90vw)] h-[540px] rounded-[2rem] p-7 flex flex-col items-center justify-between overflow-hidden shadow-2xl shadow-blue-900/40 cursor-pointer border border-blue-400/20"
+        className="relative w-[min(340px,90vw)] aspect-[340/540] rounded-[2rem] p-7 flex flex-col items-center justify-between overflow-hidden shadow-2xl shadow-blue-900/40 cursor-pointer border border-blue-400/20"
       >
         {/* Subtle Noise Texture */}
         <div className="absolute inset-0 opacity-[0.04] mix-blend-overlay pointer-events-none"
