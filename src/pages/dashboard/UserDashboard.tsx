@@ -63,7 +63,7 @@ export default function UserDashboard() {
             </div>
             <div className="flex items-center space-x-2 sm:space-x-4">
               {currentUser.status === 'Approved' && (
-                <button 
+                <button
                   onClick={() => {
                     const el = document.getElementById('digital-card-section');
                     el?.scrollIntoView({ behavior: 'smooth' });
@@ -79,7 +79,7 @@ export default function UserDashboard() {
                 <span className="text-sm font-bold text-slate-900 leading-none">{currentUser.fullName}</span>
                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-1">{currentUser.role}</span>
               </div>
-              <button 
+              <button
                 onClick={handleLogout}
                 className="p-2.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all"
                 title="Logout"
@@ -94,10 +94,10 @@ export default function UserDashboard() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          
+
           {/* Left Column: Status and Info */}
           <div className="lg:col-span-7 space-y-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-white rounded-3xl p-8 shadow-sm border border-slate-100"
@@ -106,16 +106,16 @@ export default function UserDashboard() {
               <div className={clsx(
                 "flex items-center space-x-4 p-4 rounded-2xl border",
                 currentUser.status === 'Approved' ? 'bg-green-50 border-green-100' :
-                currentUser.status === 'Declined' ? 'bg-red-50 border-red-100' :
-                'bg-yellow-50 border-yellow-100'
+                  currentUser.status === 'Declined' ? 'bg-red-50 border-red-100' :
+                    'bg-yellow-50 border-yellow-100'
               )}>
                 {getStatusIcon()}
                 <div>
                   <p className="text-sm font-bold text-slate-900">{currentUser.status}</p>
                   <p className="text-xs text-slate-600 mt-0.5">
                     {currentUser.status === 'Approved' ? 'Your application has been approved. Your ID is ready.' :
-                     currentUser.status === 'Declined' ? 'Your application was declined by the administrator.' :
-                     'Your application is currently under review by our team.'}
+                      currentUser.status === 'Declined' ? 'Your application was declined by the administrator.' :
+                        'Your application is currently under review by our team.'}
                   </p>
                 </div>
               </div>
@@ -128,7 +128,7 @@ export default function UserDashboard() {
               )}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -168,7 +168,7 @@ export default function UserDashboard() {
 
           {/* Right Column: Digital ID */}
           <div id="digital-card-section" className="lg:col-span-5">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
@@ -188,7 +188,7 @@ export default function UserDashboard() {
                 currentUser.status !== 'Approved' && "opacity-50 grayscale pointer-events-none blur-[2px]"
               )}>
                 <AccessCard user={currentUser} />
-                
+
                 {currentUser.status !== 'Approved' && (
                   <div className="absolute inset-0 z-50 flex items-center justify-center">
                     <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-xl border border-slate-200">
@@ -200,7 +200,7 @@ export default function UserDashboard() {
               </div>
 
               {currentUser.status === 'Approved' && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}

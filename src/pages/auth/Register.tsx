@@ -131,6 +131,9 @@ export default function Register() {
           });
           setGoogleProfileData((prev) => ({
             ...prev,
+            fullName: user.fullName || '',
+            discordUsername: user.discordUsername || '',
+            specialization: user.specialization || 'Developer',
             role: user.role || 'Member',
           }));
         } else {
@@ -162,7 +165,7 @@ export default function Register() {
       ? googleProfileData.customRole
       : googleProfileData.role;
 
-    if (!googleProfileData.discordUsername || !specialization || !role) {
+    if (!googleProfileData.fullName || !googleProfileData.discordUsername || !specialization || !role) {
       setError('Please fill in all required fields.');
       return;
     }
@@ -170,6 +173,7 @@ export default function Register() {
     try {
       setLoading(true);
       await updateUserData(googleUser.uid, {
+        fullName: googleProfileData.fullName,
         discordUsername: googleProfileData.discordUsername,
         specialization,
         role,
@@ -178,6 +182,7 @@ export default function Register() {
 
       const updatedCurrentUser = {
         ...useStore.getState().currentUser,
+        fullName: googleProfileData.fullName,
         discordUsername: googleProfileData.discordUsername,
         specialization,
         role,
