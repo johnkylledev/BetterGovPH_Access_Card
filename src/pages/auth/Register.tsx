@@ -208,7 +208,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans selection:bg-blue-900/20">
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-6 sm:py-12 px-4 sm:px-6 lg:px-8 font-sans selection:bg-blue-900/20">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -217,7 +217,7 @@ export default function Register() {
         <div className="w-12 h-12 bg-blue-900 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-900/20 mb-4 p-2">
           <img src="/logo.svg" alt="BetterGovPH Logo" className="w-full h-full object-contain brightness-0 invert" />
         </div>
-        <h2 className="mt-2 text-center text-3xl font-bold tracking-tight text-slate-900 font-display">
+        <h2 className="mt-2 text-center text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 font-display">
           Apply for Access
         </h2>
         <p className="mt-2 text-center text-sm text-slate-500">
@@ -231,7 +231,7 @@ export default function Register() {
         transition={{ delay: 0.1 }}
         className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl"
       >
-        <div className="bg-white py-8 px-4 shadow-sm sm:rounded-3xl sm:px-10 border border-slate-100">
+        <div className="bg-white py-8 px-4 shadow-sm rounded-2xl sm:rounded-3xl sm:px-10 border border-slate-100">
           {!useGoogle ? (
             <>
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -304,7 +304,7 @@ export default function Register() {
                       name="specialization"
                       value={formData.specialization}
                       onChange={handleChange}
-                      className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all bg-white"
+                      className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all bg-white"
                     >
                       {SPECIALIZATIONS.map((spec) => (
                         <option key={spec} value={spec}>{spec}</option>
@@ -317,7 +317,7 @@ export default function Register() {
                         required
                         value={formData.customSpecialization}
                         onChange={handleChange}
-                        className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all"
+                        className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all"
                         placeholder="Specify specialization..."
                       />
                     )}
@@ -329,7 +329,7 @@ export default function Register() {
                       name="role"
                       value={formData.role}
                       onChange={handleChange}
-                      className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all bg-white"
+                      className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all bg-white"
                     >
                       {ROLES.map((role) => (
                         <option key={role} value={role}>{role}</option>
@@ -342,7 +342,7 @@ export default function Register() {
                         required
                         value={formData.customRole}
                         onChange={handleChange}
-                        className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all"
+                        className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all"
                         placeholder="Specify role..."
                       />
                     )}
@@ -415,7 +415,7 @@ export default function Register() {
                     required
                     value={googleProfileData.fullName}
                     onChange={handleGoogleProfileChange}
-                    className="block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all bg-white"
+                    className="block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all bg-white"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -424,7 +424,7 @@ export default function Register() {
                   <input
                     value={googleUser.email}
                     disabled
-                    className="block w-full rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-600 sm:text-sm"
+                    className="block w-full rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-slate-600 text-base sm:text-sm"
                   />
                 </div>
               </div>
@@ -437,7 +437,7 @@ export default function Register() {
                   required
                   value={googleProfileData.discordUsername}
                   onChange={handleGoogleProfileChange}
-                  className="block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all"
+                  className="block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all"
                   placeholder="juan_dev#1234"
                 />
               </div>
@@ -449,7 +449,7 @@ export default function Register() {
                     name="specialization"
                     value={googleProfileData.specialization}
                     onChange={handleGoogleProfileChange}
-                    className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all bg-white"
+                    className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all bg-white"
                   >
                     {SPECIALIZATIONS.map((spec) => (
                       <option key={spec} value={spec}>{spec}</option>
@@ -462,7 +462,7 @@ export default function Register() {
                       required
                       value={googleProfileData.customSpecialization}
                       onChange={handleGoogleProfileChange}
-                      className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all"
+                      className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all"
                       placeholder="Specify specialization..."
                     />
                   )}
@@ -474,7 +474,7 @@ export default function Register() {
                     name="role"
                     value={googleProfileData.role}
                     onChange={handleGoogleProfileChange}
-                    className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all bg-white"
+                    className="block w-full rounded-xl border border-slate-200 px-4 py-3 text-slate-700 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all bg-white"
                   >
                     {ROLES.map((role) => (
                       <option key={role} value={role}>{role}</option>
@@ -487,7 +487,7 @@ export default function Register() {
                       required
                       value={googleProfileData.customRole}
                       onChange={handleGoogleProfileChange}
-                      className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 sm:text-sm transition-all"
+                      className="mt-3 block w-full appearance-none rounded-xl border border-slate-200 px-4 py-3 placeholder-slate-400 focus:border-blue-500 focus:outline-none focus:ring-4 focus:ring-blue-500/10 text-base sm:text-sm transition-all"
                       placeholder="Specify role..."
                     />
                   )}
@@ -498,7 +498,7 @@ export default function Register() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex w-full justify-center rounded-xl bg-blue-900 px-4 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex w-full justify-center rounded-xl bg-blue-900 px-4 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
                 >
                   {loading ? 'Saving...' : 'Complete Registration'}
                 </button>
@@ -509,7 +509,7 @@ export default function Register() {
                     setGoogleUser(null);
                     setError('');
                   }}
-                  className="flex w-full justify-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all"
+                  className="flex w-full justify-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all active:scale-[0.98]"
                 >
                   Back to Traditional Registration
                 </button>
@@ -542,7 +542,7 @@ export default function Register() {
                 type="button"
                 onClick={handleGoogleSignUp}
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-3 rounded-xl bg-blue-900 px-4 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex w-full items-center justify-center gap-3 rounded-xl bg-blue-900 px-4 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-[0.98]"
               >
                 <Chrome className="w-5 h-5" />
                 {loading ? 'Signing up...' : 'Sign up with Google'}
@@ -551,7 +551,7 @@ export default function Register() {
               <button
                 type="button"
                 onClick={() => setUseGoogle(false)}
-                className="flex w-full justify-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all"
+                className="flex w-full justify-center rounded-xl border border-slate-200 px-4 py-3.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-blue-900/20 transition-all active:scale-[0.98]"
               >
                 Use Traditional Registration
               </button>
@@ -565,6 +565,7 @@ export default function Register() {
                 </p>
               </div>
             </div>
+
           )}
         </div>
       </motion.div>
