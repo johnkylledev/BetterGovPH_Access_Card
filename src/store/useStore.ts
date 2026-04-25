@@ -15,6 +15,8 @@ interface AuthState {
   setUsers: (users: User[]) => void;
   setCurrentUser: (user: User | null) => void;
   updateCurrentUserFromFirebase: (uid: string) => Promise<void>;
+  authInitialized: boolean;
+  setAuthInitialized: (val: boolean) => void;
 }
 
 const generateId = () => Math.random().toString(36).substring(2, 9);
@@ -25,6 +27,8 @@ export const useStore = create<AuthState>()(
     (set, get) => ({
       users: [],
       currentUser: null,
+      authInitialized: false,
+      setAuthInitialized: (val: boolean) => set({ authInitialized: val }),
 
       register: async (userData) => {
         const { users } = get();
@@ -140,7 +144,7 @@ export const useStore = create<AuthState>()(
       logout: async () => {
         try {
           await firebaseService.signOut();
-          set({ currentUser: null });
+          set({ currentUser: null, users: [] });
         } catch (error) {
           console.error('Logout error:', error);
           set({ currentUser: null });
@@ -225,6 +229,7 @@ export const useStore = create<AuthState>()(
     {
       name: 'bettergovph-store-v2',
       partialize: (state) => ({
+        users: state.users,
         currentUser: state.currentUser ? {
           ...state.currentUser,
           password: undefined,

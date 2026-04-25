@@ -11,7 +11,18 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const login = useStore((state) => state.login);
   const loginWithGoogle = useStore((state) => state.loginWithGoogle);
+  const { currentUser, authInitialized } = useStore();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    if (authInitialized && currentUser) {
+      if (currentUser.isAdmin) {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
+    }
+  }, [currentUser, authInitialized, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

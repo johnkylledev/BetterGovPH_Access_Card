@@ -8,6 +8,7 @@ import Verify from "./pages/public/Verify";
 import { useStore } from "./store/useStore";
 import { auth } from "./services/firebase";
 import { onAuthStateChanged } from "firebase/auth";
+import { LoadingOverlay } from "./components/LoadingOverlay";
 
 export default function App() {
   const { updateCurrentUserFromFirebase } = useStore();
@@ -17,13 +18,18 @@ export default function App() {
       if (firebaseUser) {
         await updateCurrentUserFromFirebase(firebaseUser.uid);
       }
+      useStore.getState().setAuthInitialized(true);
     });
 
     return () => unsubscribe();
   }, [updateCurrentUserFromFirebase]);
 
+  const { authInitialized } = useStore();
+
   return (
-    <Router>
+    <>
+      {!authInitialized && <LoadingOverlay />}
+      <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
@@ -33,5 +39,6 @@ export default function App() {
         <Route path="/verify/:id" element={<Verify />} />
       </Routes>
     </Router>
+    </>
   );
 }

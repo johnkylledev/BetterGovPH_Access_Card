@@ -8,20 +8,20 @@ import html2canvas from 'html2canvas';
 import clsx from 'clsx';
 
 export default function UserDashboard() {
-  const { currentUser, logout } = useStore();
+  const { currentUser, logout, authInitialized } = useStore();
   const navigate = useNavigate();
   const [downloadLoading, setDownloadLoading] = React.useState(false);
   const [copyStatus, setCopyStatus] = React.useState<'idle' | 'copied' | 'embed-copied'>('idle');
 
   useEffect(() => {
-    if (!currentUser) {
+    if (authInitialized && !currentUser) {
       navigate('/');
-    } else if (currentUser.isAdmin) {
+    } else if (authInitialized && currentUser?.isAdmin) {
       navigate('/admin');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, navigate, authInitialized]);
 
-  if (!currentUser) return null;
+  if (!authInitialized || !currentUser) return null;
 
   const handleLogout = () => {
     logout();

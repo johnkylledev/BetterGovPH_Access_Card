@@ -10,7 +10,7 @@ import { User, ApplicationStatus } from '../../types';
 import { getAllUsers } from '../../services/firebase';
 
 export default function AdminDashboard() {
-  const { currentUser, users, logout, updateUserStatus, setUsers } = useStore();
+  const { currentUser, users, logout, updateUserStatus, setUsers, authInitialized } = useStore();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<'applications' | 'members'>('applications');
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,10 +23,10 @@ export default function AdminDashboard() {
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'embed-copied'>('idle');
 
   useEffect(() => {
-    if (!currentUser || !currentUser.isAdmin) {
+    if (authInitialized && (!currentUser || !currentUser.isAdmin)) {
       navigate('/');
     }
-  }, [currentUser, navigate]);
+  }, [currentUser, navigate, authInitialized]);
 
   useEffect(() => {
     if (!currentUser?.isAdmin) return;
@@ -60,7 +60,7 @@ export default function AdminDashboard() {
     loadUsers();
   }, [currentUser, setUsers]);
 
-  if (!currentUser || !currentUser.isAdmin) return null;
+  if (!authInitialized || !currentUser || !currentUser.isAdmin) return null;
 
   const handleLogout = () => {
     logout();

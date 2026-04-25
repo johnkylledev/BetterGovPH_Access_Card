@@ -44,6 +44,17 @@ export default function Register() {
   const loginWithGoogle = useStore((state) => state.loginWithGoogle);
   const currentUser = useStore((state) => state.currentUser);
   const navigate = useNavigate();
+  const { authInitialized } = useStore();
+
+  useEffect(() => {
+    if (authInitialized && currentUser && currentUser.discordUsername && currentUser.specialization) {
+      if (currentUser.isAdmin) {
+        navigate('/admin');
+      } else {
+        navigate('/dashboard');
+      }
+    }
+  }, [currentUser, authInitialized, navigate]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
