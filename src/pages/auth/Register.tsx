@@ -208,7 +208,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-6 sm:py-12 px-4 sm:px-6 lg:px-8 font-sans selection:bg-blue-900/20">
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-6 sm:py-12 sm:px-6 lg:px-8 font-sans selection:bg-blue-900/20">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -231,7 +231,7 @@ export default function Register() {
         transition={{ delay: 0.1 }}
         className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl"
       >
-        <div className="bg-white py-8 px-4 shadow-sm rounded-2xl sm:rounded-3xl sm:px-10 border border-slate-100">
+        <div className="bg-white py-8 px-4 shadow-sm sm:rounded-3xl sm:px-10 border-y sm:border border-slate-100 min-h-[70vh] sm:min-h-0">
           {!useGoogle ? (
             <>
               <form className="space-y-6" onSubmit={handleSubmit}>

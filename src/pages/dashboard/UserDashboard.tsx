@@ -95,7 +95,7 @@ export default function UserDashboard() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
+      <main className="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8 py-6 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
 
           {/* Left Column: Status and Info */}
@@ -103,7 +103,7 @@ export default function UserDashboard() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100"
+              className="bg-white sm:rounded-3xl p-6 sm:p-8 shadow-sm border-y sm:border border-slate-100"
             >
               <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-4 sm:mb-6">Application Status</h2>
               <div className={clsx(
@@ -135,7 +135,7 @@ export default function UserDashboard() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-100"
+              className="bg-white sm:rounded-3xl p-6 sm:p-8 shadow-sm border-y sm:border border-slate-100"
             >
               <h2 className="text-base sm:text-lg font-bold text-slate-900 mb-4 sm:mb-6">Profile Information</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-x-8">

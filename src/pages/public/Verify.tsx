@@ -107,13 +107,13 @@ export default function Verify() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 font-sans selection:bg-blue-900/20">
+    <div className="min-h-screen bg-white sm:bg-slate-50 flex flex-col items-center justify-center font-sans selection:bg-blue-900/20">
       <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-full max-w-md bg-white rounded-[2rem] p-8 shadow-xl border border-slate-100 flex flex-col items-center text-center relative overflow-hidden"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="w-full max-w-3xl bg-white sm:rounded-[2.5rem] sm:my-10 px-0 sm:px-12 py-10 sm:py-20 sm:shadow-2xl sm:shadow-slate-200/50 sm:border border-slate-100 flex flex-col items-center text-center relative overflow-hidden min-h-screen sm:min-h-0"
       >
-        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-600 to-blue-900" />
+        <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-900" />
 
         {loading ? (
           <div className="py-16">
@@ -122,15 +122,14 @@ export default function Verify() {
           </div>
         ) : id && (isValid || isPending || isDeclined) ? (
           <>
-
-            <h1 className="text-3xl font-display font-bold text-slate-900 mb-2">
+            <h1 className="text-3xl sm:text-4xl font-display font-bold text-slate-900 mb-3 tracking-tight px-4">
               Official Verification
             </h1>
-            <p className="text-slate-600 text-lg font-medium mb-8 px-4 leading-relaxed">
+            <p className="text-slate-600 text-lg sm:text-xl font-medium mb-10 sm:mb-12 px-6 sm:px-6 leading-relaxed max-w-2xl">
               {isValid
                 ? (
                   <span>
-                    <span className="text-blue-900 font-mono font-bold px-2 py-1 bg-blue-50 rounded-lg">{userData.fullName}</span> is a verified member of BetterGovPH.
+                    <span className="text-blue-900 font-mono font-bold px-2 py-0.5 bg-blue-50 rounded-lg break-words">{userData.fullName}</span> is a verified member of BetterGovPH.
                   </span>
                 )
                 : isPending
@@ -139,25 +138,25 @@ export default function Verify() {
             </p>
 
             <div className={clsx(
-              "transition-all duration-700",
+              "transition-all duration-700 w-full flex justify-center px-2",
               !isValid && "opacity-50 grayscale blur-[1px] pointer-events-none"
             )}>
               <AccessCard user={userData} />
             </div>
 
             {isValid && (
-              <div className="w-full max-w-[340px] mt-8 space-y-4">
+              <div className="w-full max-w-md mt-12 space-y-4">
               </div>
             )}
 
             {!isValid && (
-              <div className="mt-8 w-full">
+              <div className="mt-8 w-full px-4">
                 <button
                   onClick={() => {
                     setUserData(null);
                     navigate('/verify');
                   }}
-                  className="w-full py-3 bg-slate-100 text-slate-600 rounded-2xl text-sm font-bold hover:bg-slate-200 transition-all"
+                  className="w-full py-4 bg-slate-100 text-slate-600 rounded-2xl text-sm font-bold hover:bg-slate-200 transition-all active:scale-[0.98]"
                 >
                   Verify Another ID
                 </button>
@@ -166,19 +165,19 @@ export default function Verify() {
           </>
         ) : (
           <>
-            <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
-              <Search className="w-10 h-10 text-blue-500" />
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6">
+              <Search className="w-8 h-8 sm:w-10 sm:h-10 text-blue-500" />
             </div>
-            <h1 className="text-2xl font-display font-bold text-slate-900 mb-2">
+            <h1 className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-2">
               {id ? 'Invalid Card' : 'Verify Credentials'}
             </h1>
-            <p className="text-slate-500 text-sm mb-8">
+            <p className="text-slate-500 text-xs sm:text-sm mb-8 px-6">
               {id
                 ? 'This digital access card could not be verified. It may be pending, revoked, or fake.'
                 : 'Enter a Member ID below to verify its status in our official database.'}
             </p>
 
-            <div className="w-full space-y-4">
+            <div className="w-full space-y-4 px-4">
               <div className="relative">
                 <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
@@ -186,7 +185,7 @@ export default function Verify() {
                   placeholder="Enter Member ID (e.g. BGPH-2026-001)"
                   value={searchId}
                   onChange={(e) => setSearchId(e.target.value)}
-                  className="w-full pl-12 pr-12 py-4 bg-slate-50 border border-slate-200 rounded-2xl text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all uppercase placeholder:normal-case"
+                  className="w-full pl-12 pr-12 py-3 sm:py-4 bg-slate-50 border border-slate-200 rounded-2xl text-base sm:text-sm focus:outline-none focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 transition-all uppercase placeholder:normal-case"
                 />
                 <div className="absolute right-4 top-1/2 -translate-y-1/2">
                   {isSearching && <Loader2 className="w-4 h-4 text-blue-600 animate-spin" />}
@@ -197,16 +196,16 @@ export default function Verify() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-5 bg-green-50 border border-green-100 rounded-2xl flex items-center justify-between group"
+                  className="p-4 sm:p-5 bg-green-50 border border-green-100 rounded-2xl flex items-center justify-between group"
                 >
-                  <div className="text-left">
-                    <p className="text-[10px] font-bold text-green-600 uppercase tracking-widest mb-1">Official Member Found</p>
-                    <p className="text-sm font-bold text-slate-900">{searchResult.fullName}</p>
-                    <p className="text-xs text-slate-500">{searchResult.memberId}</p>
+                  <div className="text-left overflow-hidden">
+                    <p className="text-[9px] sm:text-[10px] font-bold text-green-600 uppercase tracking-widest mb-1 truncate">Official Member Found</p>
+                    <p className="text-sm font-bold text-slate-900 truncate">{searchResult.fullName}</p>
+                    <p className="text-xs text-slate-500 truncate">{searchResult.memberId}</p>
                   </div>
                   <button
                     onClick={() => navigate(`/verify/${searchResult.memberId}`)}
-                    className="p-3 bg-blue-900 text-white rounded-xl shadow-sm border border-blue-200 group-hover:bg-blue-800 transition-all"
+                    className="p-2 sm:p-3 bg-blue-900 text-white rounded-xl shadow-sm border border-blue-200 group-hover:bg-blue-800 transition-all ml-4"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </button>
@@ -222,13 +221,14 @@ export default function Verify() {
           </>
         )}
 
-        <div className="mt-8 pt-6 border-t border-slate-100 w-full">
-          <Link to="/" className="inline-flex items-center space-x-2 text-sm font-bold text-blue-900 hover:text-blue-700 transition-colors">
+        <div className="mt-12 pt-8 border-t border-slate-100 w-full px-4 sm:px-12">
+          <Link to="/" className="inline-flex items-center justify-center space-x-2 text-sm font-bold text-blue-900 hover:text-blue-700 transition-colors w-full group">
             <span>Return to BetterGovPH Portal</span>
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </motion.div>
     </div>
+
   );
 }
