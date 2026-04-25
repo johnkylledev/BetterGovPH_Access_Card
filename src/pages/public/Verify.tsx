@@ -97,7 +97,7 @@ export default function Verify() {
   const handleCopyEmbed = async () => {
     if (!publicUrl) return;
     try {
-      const embedCode = `<iframe src="${publicUrl}" width="380" height="600" frameborder="0"></iframe>`;
+      const embedCode = `<iframe src="${publicUrl}" width="300" height="450" frameborder="0"></iframe>`;
       await navigator.clipboard.writeText(embedCode);
       setCopyStatus('embed-copied');
       setTimeout(() => setCopyStatus('idle'), 2000);
